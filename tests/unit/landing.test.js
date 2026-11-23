@@ -13,8 +13,8 @@ describe("landing contract", () => {
     const tabs = [...doc.querySelectorAll(".docs-tab")];
     const panels = [...doc.querySelectorAll(".docs-panels [data-doc]")];
 
-    expect(tabs).toHaveLength(8);
-    expect(panels).toHaveLength(8);
+    expect(tabs).toHaveLength(7);
+    expect(panels).toHaveLength(7);
     for (const tab of tabs) {
       expect(
         panels.some((panel) => panel.dataset.doc === tab.dataset.doc),
@@ -30,7 +30,6 @@ describe("landing contract", () => {
       "detects",
       "console",
       "interfaces",
-      "run",
       "faq",
       "access",
     ]) {

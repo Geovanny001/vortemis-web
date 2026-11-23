@@ -40,147 +40,9 @@
 
     <div class="lp-divider" aria-hidden="true">~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~</div>
 
-    <section class="lp-tech">
-      <h2 class="lp-title">Technologies.</h2>
-      <pre class="lp-ascii lp-python" aria-hidden="true">                 .:::-========-:::..
-               :-----======----------:.
-              ---:   .===--------------:
-              --=:   .=---:-----------::
-              ======-=--------------:::.
-              .......     .:------:::.:.
-      ..:::::::::..........-----::::::::  ......
-   :---========---------------::::::::::  :::::::::
- .---=======--::------------::::::::::::  ::::::::::
- --=======---------------:::::::::::::::  :::::::::::
-:=======---------------:::.::::::::::::  .:::::::::::.
--=====---------------::::::::::::::::.   :::::::::::::
-====----------::    ..............    .:::::::::::::::
--=-----------.   ...::::::::::::::::::::::::::::::::::
-:-:---------:  .::::::::::::::::::::::::::::::::::::::
- :----------  .::::::::::::::::::::::::::::::::::::::
- .--------::  ::::::::::::::::::::::::::::::::::::::.
-  .:----::::  ::::::::::::::::::::::::::::::::::::.
-     .:.....  :::::::::::::.....................
-              .::::::::::::
-              .:::::::::::::::::::::::::
-              ::::::::::::::::::.   .:::
-              .:::::::::::::::::    .:::
-               .::::::::::::::::::.:::.
-                  ...:::::::::::::.:.</pre>
-      <h3 class="lp-subtitle">Python</h3>
-      <p class="lp-desc">
-        Runs the engine end to end: log ingestion, feature extraction, scoring
-        and the API process itself.
-      </p>
-      <div class="lp-tech-rule" aria-hidden="true">
-        <span>~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~</span>
-        <span>~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~~~~.~~~*~~~+~~~.~~~*~~~[=+=]~~~.~~~*~~~+~~~</span>
-      </div>
-    </section>
+    
 
-    <section class="lp-arch">
-      <div class="lp-row-2">
-        <article class="lp-item">
-          <pre class="lp-ascii lp-icon" aria-hidden="true">              .
-           ..::
-         ..:::.
-       .::::.      :::
-     .::::.        ...
-   .::::.               .:.
-  ::::.                .::::
- ::::                    :.::
-::.:                      :.:.
-:.::                      ::::
-:::.                      ::::
-.:.:                      :.:.
- ::::                    ::::
-  ::::.                .::::
-   .::::.            .::::.
-      ..:::::::.:::::::.
-          ..:::::.:..</pre>
-          <h3>PyTorch</h3>
-          <p>
-            Runs the autoencoder that reconstructs each six-feature flow and
-            returns the anomaly probability.
-          </p>
-        </article>
-        <article class="lp-item">
-          <pre class="lp-ascii lp-icon" aria-hidden="true">      .:-
-    .:..-
-  ::.   ..................-:.
-:-.                      ::
- .:..   ............
-    .:..-.      .-=:
-      .:-      .-:
-             .--
-           .-:.      -:.
-          -=:        -..:.
-         .............   .::.
-   .:                      .-:
-  --..................   .::
-                     -..:.
-                     -:.</pre>
-          <h3>Zeek</h3>
-          <p>
-            Supplies conn.log from the sensor. The engine reads the log, never
-            the packets.
-          </p>
-        </article>
-      </div>
-
-      <div class="lp-row-3">
-        <article class="lp-item">
-          <div class="lp-rule mono" aria-hidden="true">~~~.~~~*~~~[=+=]~~~.~~~</div>
-          <pre class="lp-ascii lp-icon" aria-hidden="true">   ....... ...... .:::...
- ..-----=:.:------:.:-=--:.
-:.-=====:.==========-.:=== :
-:.=-==== :::.-====-::: -=- :
-:.-===== --:: ====- -- -=.:
- ..====- -=== -====.:= =:..
- :.-=-=- -==:.======.:....
-  :.-===- :: :=======. .:  .
-   ..--:....: :=====- ::...:
-      ......:.:=====:.
-             .:=====.:
-             ..-===-..
-              ..::..</pre>
-          <h3>PostgreSQL</h3>
-          <p>
-            Stores every scored flow in a star schema and answers the filters,
-            aggregates and timeline.
-          </p>
-        </article>
-        <article class="lp-item">
-          <div class="lp-rule mono" aria-hidden="true">~~~.~~~*~~~[=+=]~~~.~~~</div>
-          <pre class="lp-attack" aria-hidden="true">ATT&amp;CK</pre>
-          <h3>MITRE ATT&amp;CK</h3>
-          <p>
-            Provides the tactic vocabulary. Explicit rules label a flow only
-            when it crosses the threshold.
-          </p>
-        </article>
-        <article class="lp-item">
-          <div class="lp-rule mono" aria-hidden="true">~~~.~~~*~~~[=+=]~~~.~~~</div>
-          <pre class="lp-ascii lp-icon" aria-hidden="true">       ...::::::...
-    ..:::::::.::::::..
-  .:::::::::  :::::::::.
- .:::::::::  .::::::::::.
-.:::::::::   .::::.::::::.
-::::::::.         .:::::::
-:::::::.         .::::::::
-.:::::::::::.   .::::::::.
- .::::::::::.  .::::::::.
-  .:::::::::. :::::::::.
-    ..::::::.:::::::..
-       ...::::::...</pre>
-          <h3>FastAPI</h3>
-          <p>
-            Serves the versioned /v1 contract, the OpenAPI document and the
-            authenticated operator endpoints.
-          </p>
-        </article>
-      </div>
-    </section>
+    
 
     <section class="lp-live" id="telemetry">
       <h2 class="lp-title">Telemetry.</h2>
@@ -265,7 +127,6 @@
         <button class="docs-tab" id="doc-tab-detects" role="tab" data-doc="detects" aria-controls="detects" aria-selected="false" tabindex="-1">DETECTIONS</button>
         <button class="docs-tab" id="doc-tab-console" role="tab" data-doc="console" aria-controls="console" aria-selected="false" tabindex="-1">CONSOLE</button>
         <button class="docs-tab" id="doc-tab-interfaces" role="tab" data-doc="interfaces" aria-controls="interfaces" aria-selected="false" tabindex="-1">API</button>
-        <button class="docs-tab" id="doc-tab-run" role="tab" data-doc="run" aria-controls="run" aria-selected="false" tabindex="-1">RUN</button>
         <button class="docs-tab" id="doc-tab-faq" role="tab" data-doc="faq" aria-controls="faq" aria-selected="false" tabindex="-1">FAQ</button>
         <button class="docs-tab" id="doc-tab-access" role="tab" data-doc="access" aria-controls="access" aria-selected="false" tabindex="-1">ACCESS</button>
       </div>
@@ -479,30 +340,7 @@
       </div>
     </section>
 
-    <section class="section doc-panel" id="run" data-doc="run" role="tabpanel" aria-labelledby="doc-tab-run" hidden>
-      <div class="section-head">
-        <p class="kicker">[ 05 ] RUN IT</p>
-        <h2>Two containers and a database.</h2>
-      </div>
-
-      <div class="run">
-        <pre class="code">git clone https://github.com/Geovanny001/Vortemis.io.git
-cd Vortemis.io
-docker compose up --build
-
-# console  http://vortemis.local:8501
-# api      http://vortemis.local:8000
-# docs     http://vortemis.local:8000/docs</pre>
-
-        <ul class="requirements">
-          <li><span>Runtime</span><b>Python 3.14 or Docker</b></li>
-          <li><span>Storage</span><b>PostgreSQL 16</b></li>
-          <li><span>Telemetry</span><b>Zeek conn.log or tshark</b></li>
-          <li><span>Model</span><b>Shipped checkpoint</b></li>
-          <li><span>Schema</span><b>Alembic migrations</b></li>
-        </ul>
-      </div>
-    </section>
+    
 
     <section class="section doc-panel" id="faq" data-doc="faq" role="tabpanel" aria-labelledby="doc-tab-faq" hidden>
       <div class="section-head">
