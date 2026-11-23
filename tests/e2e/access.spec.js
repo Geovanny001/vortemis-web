@@ -11,19 +11,24 @@ const ANALYST = {
 };
 
 async function signIn(page, { user, password }) {
-  await page.locator('[data-goto="login"]').first().click();
   await page.locator('#login-form input[name="username"]').fill(user);
   await page.locator('#login-form input[name="password"]').fill(password);
   await page.locator("#login-submit").click();
 }
+
+test("opens on the login screen", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("#login")).toBeVisible();
+  await expect(page.locator("#home")).toBeHidden();
+  await expect(page.locator("#app")).toBeHidden();
+});
 
 test.describe("access control", () => {
   test.skip(!API_URL, "set API_URL to run the system tests");
 
   test("rejects invalid credentials", async ({ page }) => {
     await page.goto(`/?api=${encodeURIComponent(API_URL)}`);
-    await page.locator('[data-goto="login"]').first().click();
-    await page.locator('#login-form input[name="username"]').fill("nobody");
+      await page.locator('#login-form input[name="username"]').fill("nobody");
     await page.locator('#login-form input[name="password"]').fill("wrong");
     await page.locator("#login-submit").click();
 

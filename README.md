@@ -7,10 +7,13 @@ step, no framework and no client-side dependencies beyond Three.js from a CDN.
 ## Run locally
 
 ```bash
-python -m http.server 8080
+python serve.py
 ```
 
-Open http://127.0.0.1:8080.
+Open http://localhost:8080. The server also proxies `/v1/*` to the API at
+`http://127.0.0.1:8000`, so the console works from the same origin. Override
+the upstream with `VORTEMIS_API_HOST` and `VORTEMIS_API_PORT`, and the port
+with `PORT`.
 
 ES modules and the import map require HTTP; opening `index.html` from the file
 system does not work.

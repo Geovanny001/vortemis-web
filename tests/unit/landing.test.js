@@ -13,8 +13,8 @@ describe("landing contract", () => {
     const tabs = [...doc.querySelectorAll(".docs-tab")];
     const panels = [...doc.querySelectorAll(".docs-panels [data-doc]")];
 
-    expect(tabs).toHaveLength(7);
-    expect(panels).toHaveLength(7);
+    expect(tabs).toHaveLength(6);
+    expect(panels).toHaveLength(6);
     for (const tab of tabs) {
       expect(
         panels.some((panel) => panel.dataset.doc === tab.dataset.doc),
@@ -31,7 +31,6 @@ describe("landing contract", () => {
       "console",
       "interfaces",
       "faq",
-      "access",
     ]) {
       expect(doc.getElementById(id)).not.toBeNull();
     }
@@ -44,5 +43,17 @@ describe("landing contract", () => {
     expect(text).not.toContain("192.168.");
     expect(text).not.toContain("0.0.0.0");
     expect(text).not.toContain("trycloudflare");
+  });
+
+  it("opens on the login screen", () => {
+    expect(doc.getElementById("home").hasAttribute("hidden")).toBe(true);
+    expect(doc.getElementById("login").hasAttribute("hidden")).toBe(false);
+  });
+
+  it("keeps session internals out of the login", () => {
+    const login = doc.getElementById("login").textContent;
+    expect(login).not.toContain("OPERATOR ACCESS");
+    expect(login).not.toContain("15 min access");
+    expect(login).not.toContain("Bearer token");
   });
 });

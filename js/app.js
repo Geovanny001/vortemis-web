@@ -32,6 +32,13 @@ function showScreen(name) {
   }
   if (name !== "app") stopPolling();
   window.scrollTo(0, 0);
+  if (name === "login") {
+    window.history.replaceState(
+      null,
+      "",
+      window.location.pathname + window.location.search,
+    );
+  }
 }
 
 function startPolling() {
@@ -131,6 +138,16 @@ async function showView(view) {
   }
 }
 
+function describeLoginError(error) {
+  if (error?.status === 401) return "Invalid username or password.";
+  if (error?.status === 403) return "This account cannot sign in.";
+  if (error?.status === 501 || error?.status === 502 || error?.status === 503) {
+    return "The API is not reachable. Try again.";
+  }
+  if (error instanceof TypeError) return "The API is not reachable. Try again.";
+  return error?.message || "Unexpected error.";
+}
+
 $("#login-form").addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -140,6 +157,12 @@ $("#login-form").addEventListener("submit", async (event) => {
   const password = form.password.value;
 
   $("#login-error").textContent = "";
+
+  if (!username || !password) {
+    $("#login-error").textContent = "Enter username and password.";
+    return;
+  }
+
   button.disabled = true;
   button.textContent = "Signing in…";
 
@@ -149,10 +172,7 @@ $("#login-form").addEventListener("submit", async (event) => {
     state.identity = { username, role: payload.role };
     await enterApp();
   } catch (error) {
-    $("#login-error").textContent =
-      error.status === 401
-        ? "Invalid username or password."
-        : error.message;
+    $("#login-error").textContent = describeLoginError(error);
   } finally {
     button.disabled = false;
     button.textContent = "Sign in";
@@ -205,5 +225,6 @@ updateSiteNav();
 mountDocs();
 
 (async function boot() {
-  showScreen("home");
+  const route = window.location.hash === "#home" ? "home" : "login";
+  showScreen(route);
 })();

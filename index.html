@@ -21,7 +21,7 @@
 <body>
   <canvas id="scene" aria-hidden="true"></canvas>
 
-  <div id="home" class="page">
+  <div id="home" class="page" hidden>
     <header class="lp-header">
       <button class="lp-wordmark" data-goto="login" title="Operator access">VORTEMIS</button>
     </header>
@@ -128,7 +128,6 @@
         <button class="docs-tab" id="doc-tab-console" role="tab" data-doc="console" aria-controls="console" aria-selected="false" tabindex="-1">CONSOLE</button>
         <button class="docs-tab" id="doc-tab-interfaces" role="tab" data-doc="interfaces" aria-controls="interfaces" aria-selected="false" tabindex="-1">API</button>
         <button class="docs-tab" id="doc-tab-faq" role="tab" data-doc="faq" aria-controls="faq" aria-selected="false" tabindex="-1">FAQ</button>
-        <button class="docs-tab" id="doc-tab-access" role="tab" data-doc="access" aria-controls="access" aria-selected="false" tabindex="-1">ACCESS</button>
       </div>
       <div class="docs-panels">
     <section class="section doc-panel" id="engine" data-doc="engine" role="tabpanel" aria-labelledby="doc-tab-engine">
@@ -366,20 +365,7 @@
 
     <pre class="ascii stars wide" data-ascii="stars" aria-hidden="true"></pre>
 
-    <section class="access doc-panel" id="access" data-doc="access" role="tabpanel" aria-labelledby="doc-tab-access" hidden>
-      <div>
-        <p class="kicker">[ 07 ] ACCESS</p>
-        <h2>Operator access.</h2>
-      </div>
-      <button class="login-cta" data-goto="login">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-          <path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/>
-          <path d="M3 12h11"/>
-          <path d="M10 8l4 4-4 4"/>
-        </svg>
-        SIGN IN
-      </button>
-    </section>
+    
 
       </div>
     </section>
@@ -392,12 +378,6 @@
         <a href="https://github.com/Geovanny001/Vortemis.io/releases" target="_blank" rel="noreferrer">RELEASES</a>
       </div>
       <div>
-        <span>RUNTIME</span>
-        <span>PYTHON 3.14</span>
-        <span>POSTGRESQL 16</span>
-        <span>FASTAPI</span>
-      </div>
-      <div>
         <span>STATE</span>
         <span>ACTIVE DEVELOPMENT</span>
         <span id="api-label"></span>
@@ -405,12 +385,7 @@
     </footer>
   </div>
 
-  <section id="login" class="login" hidden>
-    <div class="login-top">
-      <button class="back-link" data-goto="home">← BACK</button>
-      <span class="mono muted">OPERATOR ACCESS</span>
-    </div>
-
+  <section id="login" class="login">
     <div class="login-grid">
       <div class="login-intro">
         <p class="kicker">RESTRICTED</p>
@@ -419,13 +394,7 @@
           Sign in with an operator account to inspect flows, tactics and engine
           state. Sessions are short-lived and revocable.
         </p>
-        <dl class="facts">
-          <div><dt>Session</dt><dd>15 min access · 30 day refresh</dd></div>
-          <div><dt>Transport</dt><dd>Bearer token</dd></div>
-          <div><dt>Scope</dt><dd>Read · admin writes</dd></div>
-          <div><dt>Admin</dt><dd>Full access · purge · password rotation</dd></div>
-          <div><dt>Analyst</dt><dd>Read-only · threshold locked</dd></div>
-        </dl>
+
       </div>
 
       <form id="login-form" class="login-form" novalidate>
