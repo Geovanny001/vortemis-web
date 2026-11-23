@@ -1855,3 +1855,9 @@ main {
 .lp-live .live-block {
   margin-top: 0;
 }
+
+#home .section,
+#home .access,
+#home .lp-live {
+  scroll-margin-top: 84px;
+}
