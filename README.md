@@ -17,11 +17,11 @@ system does not work.
 
 ## Point it at the API
 
-The default API base is `http://127.0.0.1:8000`. Override it with a query
-parameter or a stored value:
+The default API base is the page origin. Override it with a query parameter
+or a stored value:
 
 ```text
-http://127.0.0.1:8080/?api=http://192.168.1.20:8000
+https://web.example.com/?api=https://api.example.com
 ```
 
 ```js
@@ -124,3 +124,30 @@ the engine repository at `docs/CONTRACTS.md`, and each release ships an
 - Tokens live in `sessionStorage`, so a new tab requires signing in again.
 - No offline cache, no service worker and no server-side rendering.
 - The API must allow the console origin through CORS.
+
+## Tests
+
+The client is a plain ES-module application, so the test toolchain is
+dependency-light and opt-in.
+
+```bash
+npm install
+npm test          # unit and integration tests (Vitest + jsdom)
+```
+
+System and access-control tests run against a live API with Playwright:
+
+```bash
+npx playwright install chromium
+API_URL=https://api.example.com \
+ADMIN_USER=... ADMIN_PASSWORD=... \
+ANALYST_USER=... ANALYST_PASSWORD=... \
+WEB_URL=http://localhost:8080 npm run test:e2e
+```
+
+| Layer | Tool | Covers |
+| --- | --- | --- |
+| Unit | Vitest | formatting, config resolution, API client |
+| Integration | Vitest + jsdom | manual tab contract, landing structure, sanitisation |
+| System | Playwright | loading, tabs, sign-in |
+| Access control | Playwright | invalid login, admin vs analyst |

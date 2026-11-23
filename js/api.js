@@ -39,7 +39,7 @@ async function raw(path, options = {}) {
     headers = {},
   } = options;
 
-  const url = new URL(`${API_BASE}${path}`);
+  const url = new URL(`${API_BASE}${path}`, window.location.origin);
   if (params) {
     for (const [key, value] of Object.entries(params)) {
       if (value !== undefined && value !== null && value !== "") {

@@ -7,6 +7,7 @@ import { refreshOverview } from "./views/overview.js";
 import { mountFlows, refreshFlows } from "./views/flows.js";
 import { mountAdmin } from "./views/admin.js";
 import { mountLive, refreshLive, refreshLiveBadge } from "./views/live.js";
+import { mountDocs } from "./docs.js";
 
 const state = {
   identity: null,
@@ -201,30 +202,7 @@ function updateSiteNav() {
 window.addEventListener("scroll", updateSiteNav, { passive: true });
 updateSiteNav();
 
-const docsTabs = $$(".docs-tab");
-const docsPanels = $$(".docs-panels [data-doc]");
-
-function selectDoc(name) {
-  for (const tab of docsTabs) {
-    tab.setAttribute("aria-selected", String(tab.dataset.doc === name));
-  }
-  for (const panel of docsPanels) {
-    panel.hidden = panel.dataset.doc !== name;
-  }
-}
-
-for (const tab of docsTabs) {
-  tab.addEventListener("click", () => {
-    selectDoc(tab.dataset.doc);
-    window.history.replaceState(null, "", `#${tab.dataset.doc}`);
-  });
-}
-
-if (docsTabs.length) {
-  const requested = (window.location.hash || "").slice(1);
-  const known = docsTabs.some((tab) => tab.dataset.doc === requested);
-  selectDoc(known ? requested : docsTabs[0].dataset.doc);
-}
+mountDocs();
 
 (async function boot() {
   if (!tokens.access && !tokens.refresh) {

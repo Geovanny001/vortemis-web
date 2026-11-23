@@ -1,3 +1,6 @@
 assets/detections.json
 assets/mobile-qr.png
 .DS_Store
+node_modules/
+test-results/
+playwright-report/
