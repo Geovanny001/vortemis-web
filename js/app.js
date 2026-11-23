@@ -205,16 +205,5 @@ updateSiteNav();
 mountDocs();
 
 (async function boot() {
-  if (!tokens.access && !tokens.refresh) {
-    showScreen("home");
-    return;
-  }
-
-  try {
-    state.identity = await api.me();
-    await enterApp();
-  } catch {
-    tokens.clear();
-    showScreen("home");
-  }
+  showScreen("home");
 })();

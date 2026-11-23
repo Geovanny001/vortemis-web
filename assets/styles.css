@@ -1616,7 +1616,7 @@ main {
   --accent-soft: #c8bfe7;
   --rule: rgba(200, 191, 231, 0.16);
   --rule-strong: rgba(200, 191, 231, 0.34);
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
 }
 
