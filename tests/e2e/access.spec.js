@@ -44,6 +44,13 @@ test.describe("access control", () => {
     await signIn(page, ADMIN);
 
     await expect(page.locator("#app")).toBeVisible();
+    await expect(page.locator("#view-home")).toBeVisible();
+    await expect(page.locator("#manual")).toBeVisible();
+    await expect(page.locator("#live-chart svg")).toBeVisible();
+    await expect(page.locator(".docs-tab")).toHaveCount(6);
+    await page.getByRole("tab", { name: "PIPELINE" }).click();
+    await expect(page.locator("#how")).toBeVisible();
+    await expect(page.locator("#engine")).toBeHidden();
     await expect(page.locator("#tab-admin")).toBeVisible();
   });
 

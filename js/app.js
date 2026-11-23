@@ -15,7 +15,7 @@ const state = {
   mounted: new Set(),
 };
 
-const SCREENS = ["home", "login", "app"];
+const SCREENS = ["login", "app"];
 const POLL_MS = 3000;
 let pollTimer = null;
 
@@ -90,7 +90,7 @@ async function enterApp() {
       $("#engine-badge").textContent = "engine unavailable";
     });
 
-  await showView("overview");
+  await showView("home");
   await refreshLiveBadge();
   startPolling();
 }
@@ -182,7 +182,7 @@ $("#login-form").addEventListener("submit", async (event) => {
 for (const trigger of $$("[data-goto]")) {
   trigger.addEventListener("click", (event) => {
     event.preventDefault();
-    showScreen(trigger.dataset.goto === "login" ? "login" : "home");
+    showScreen("login");
   });
 }
 
@@ -195,10 +195,10 @@ $("#logout").addEventListener("click", async () => {
   tokens.clear();
   state.identity = null;
   state.mounted.clear();
-  showScreen("home");
+  showScreen("login");
 });
 
-$("#back-home").addEventListener("click", () => showScreen("home"));
+$("#back-home").addEventListener("click", () => showView("home"));
 
 for (const tab of $$(".nav-item")) {
   tab.addEventListener("click", () => showView(tab.dataset.view));
@@ -225,6 +225,5 @@ updateSiteNav();
 mountDocs();
 
 (async function boot() {
-  const route = window.location.hash === "#home" ? "home" : "login";
-  showScreen(route);
+  showScreen("login");
 })();

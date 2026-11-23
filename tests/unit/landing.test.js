@@ -46,7 +46,7 @@ describe("landing contract", () => {
   });
 
   it("opens on the login screen", () => {
-    expect(doc.getElementById("home").hasAttribute("hidden")).toBe(true);
+    expect(doc.getElementById("app").hasAttribute("hidden")).toBe(true);
     expect(doc.getElementById("login").hasAttribute("hidden")).toBe(false);
   });
 

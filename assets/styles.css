@@ -1911,3 +1911,31 @@ main {
 .docs-panels [hidden] {
   display: none;
 }
+
+
+#view-home .lp-header {
+  display: none;
+}
+
+#view-home #home,
+#view-home .page {
+  max-width: none;
+  padding: 0;
+}
+
+#view-home .lp-hero {
+  min-height: auto;
+  padding: 16px 0 48px;
+}
+
+#view-home .section {
+  padding: 48px 0;
+}
+
+#view-home .lp-section.docs {
+  padding: 24px 0 48px;
+}
+
+#view-home .lp-live {
+  padding-bottom: 48px;
+}

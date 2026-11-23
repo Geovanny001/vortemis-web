@@ -21,7 +21,60 @@
 <body>
   <canvas id="scene" aria-hidden="true"></canvas>
 
-  <div id="home" class="page" hidden>
+  <section id="login" class="login">
+    <div class="login-grid">
+      <div class="login-intro">
+        <p class="kicker">RESTRICTED</p>
+        <h1>Vortemis<span>.io</span></h1>
+        <p class="lead">
+          Sign in with an operator account to inspect flows, tactics and engine
+          state. Sessions are short-lived and revocable.
+        </p>
+
+      </div>
+
+      <form id="login-form" class="login-form" novalidate>
+        <label>
+          <span>Username</span>
+          <input name="username" autocomplete="username" required>
+        </label>
+        <label>
+          <span>Password</span>
+          <input name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button type="submit" id="login-submit">SIGN IN</button>
+        <p id="login-error" class="error" role="alert"></p>
+      </form>
+    </div>
+  </section>
+
+  <div id="app" class="app" hidden>
+    <header class="masthead">
+      <div class="masthead-top">
+        <div class="wordmark">VORTEMIS<span>.IO</span></div>
+        <div class="masthead-meta">
+          <span id="live-badge" class="live-badge" hidden>
+            <span class="live-dot"></span>
+            <span id="live-label">LIVE</span>
+          </span>
+          <span id="engine-badge" class="mono">engine …</span>
+          <span id="user-label" class="mono"></span>
+          <button class="link" id="logout">SIGN OUT</button>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Sections">
+        <button class="nav-item is-active" data-view="home">01 — HOME</button>
+        <button class="nav-item" data-view="overview">02 — OVERVIEW</button>
+        <button class="nav-item" data-view="live">03 — LIVE</button>
+        <button class="nav-item" data-view="flows">04 — FLOWS</button>
+        <button class="nav-item" id="tab-admin" data-view="admin" hidden>05 — ADMIN</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="view is-active" id="view-home">
+<div id="home" class="page">
     <header class="lp-header">
       <button class="lp-wordmark" data-goto="login" title="Operator access">VORTEMIS</button>
     </header>
@@ -384,59 +437,9 @@
       </div>
     </footer>
   </div>
+      </section>
 
-  <section id="login" class="login">
-    <div class="login-grid">
-      <div class="login-intro">
-        <p class="kicker">RESTRICTED</p>
-        <h1>Vortemis<span>.io</span></h1>
-        <p class="lead">
-          Sign in with an operator account to inspect flows, tactics and engine
-          state. Sessions are short-lived and revocable.
-        </p>
-
-      </div>
-
-      <form id="login-form" class="login-form" novalidate>
-        <label>
-          <span>Username</span>
-          <input name="username" autocomplete="username" required>
-        </label>
-        <label>
-          <span>Password</span>
-          <input name="password" type="password" autocomplete="current-password" required>
-        </label>
-        <button type="submit" id="login-submit">SIGN IN</button>
-        <p id="login-error" class="error" role="alert"></p>
-      </form>
-    </div>
-  </section>
-
-  <div id="app" class="app" hidden>
-    <header class="masthead">
-      <div class="masthead-top">
-        <div class="wordmark">VORTEMIS<span>.IO</span></div>
-        <div class="masthead-meta">
-          <span id="live-badge" class="live-badge" hidden>
-            <span class="live-dot"></span>
-            <span id="live-label">LIVE</span>
-          </span>
-          <span id="engine-badge" class="mono">engine …</span>
-          <span id="user-label" class="mono"></span>
-          <button class="link" id="logout">SIGN OUT</button>
-        </div>
-      </div>
-
-      <nav class="nav" aria-label="Sections">
-        <button class="nav-item is-active" data-view="overview">01 — OVERVIEW</button>
-        <button class="nav-item" data-view="live">02 — LIVE</button>
-        <button class="nav-item" data-view="flows">03 — FLOWS</button>
-        <button class="nav-item" id="tab-admin" data-view="admin" hidden>04 — ADMIN</button>
-      </nav>
-    </header>
-
-    <main>
-      <section class="view is-active" id="view-overview">
+      <section class="view" id="view-overview" hidden>
         <div class="stats">
           <div class="stat">
             <span>Flows</span>
