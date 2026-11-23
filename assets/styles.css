@@ -1861,3 +1861,53 @@ main {
 #home .lp-live {
   scroll-margin-top: 84px;
 }
+
+.lp-section.docs {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 24px 96px;
+}
+
+.docs-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.docs-tab {
+  border: 1px solid transparent;
+  border-bottom: none;
+  background: transparent;
+  color: var(--dimmer);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  padding: 10px 14px;
+  cursor: pointer;
+  position: relative;
+  top: 1px;
+}
+
+.docs-tab[aria-selected="true"] {
+  color: var(--text);
+  border-color: var(--line);
+  background: var(--panel);
+}
+
+.docs-panels {
+  border: 1px solid var(--line);
+  border-top: none;
+  padding: 0 28px;
+}
+
+.docs-panels .section,
+.docs-panels .access {
+  border-bottom: 0;
+  padding: 40px 0 56px;
+  scroll-margin-top: 84px;
+}
+
+.docs-panels [hidden] {
+  display: none;
+}

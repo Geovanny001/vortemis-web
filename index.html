@@ -257,7 +257,20 @@
         <div id="detection-detail" class="detection-detail" hidden></div>
       </div>
     </section>
-    <section class="section" id="engine">
+    <section class="lp-section docs" id="manual">
+      <div class="lp-title"><span>[ MANUAL ]</span><h2>Manual.</h2></div>
+      <div class="docs-tabs" role="tablist" aria-label="Manual sections">
+        <button class="docs-tab" id="doc-tab-engine" role="tab" data-doc="engine" aria-controls="engine" aria-selected="true">ENGINE</button>
+        <button class="docs-tab" id="doc-tab-how" role="tab" data-doc="how" aria-controls="how" aria-selected="false" tabindex="-1">PIPELINE</button>
+        <button class="docs-tab" id="doc-tab-detects" role="tab" data-doc="detects" aria-controls="detects" aria-selected="false" tabindex="-1">DETECTIONS</button>
+        <button class="docs-tab" id="doc-tab-console" role="tab" data-doc="console" aria-controls="console" aria-selected="false" tabindex="-1">CONSOLE</button>
+        <button class="docs-tab" id="doc-tab-interfaces" role="tab" data-doc="interfaces" aria-controls="interfaces" aria-selected="false" tabindex="-1">API</button>
+        <button class="docs-tab" id="doc-tab-run" role="tab" data-doc="run" aria-controls="run" aria-selected="false" tabindex="-1">RUN</button>
+        <button class="docs-tab" id="doc-tab-faq" role="tab" data-doc="faq" aria-controls="faq" aria-selected="false" tabindex="-1">FAQ</button>
+        <button class="docs-tab" id="doc-tab-access" role="tab" data-doc="access" aria-controls="access" aria-selected="false" tabindex="-1">ACCESS</button>
+      </div>
+      <div class="docs-panels">
+    <section class="section doc-panel" id="engine" data-doc="engine" role="tabpanel" aria-labelledby="doc-tab-engine">
       <div class="section-head">
         <p class="kicker">[ ENGINE ]</p>
         <h2>What it does, what it does not.</h2>
@@ -293,7 +306,7 @@
       </div>
     </section>
 
-<section class="section" id="how">
+<section class="section doc-panel" id="how" data-doc="how" role="tabpanel" aria-labelledby="doc-tab-how" hidden>
       <div class="section-head">
         <p class="kicker">[ 01 ] PIPELINE</p>
         <h2>Four steps, one pass.</h2>
@@ -338,7 +351,7 @@
       <pre class="ascii pipeline-art" data-ascii="pipeline"></pre>
     </section>
 
-    <section class="section" id="detects">
+    <section class="section doc-panel" id="detects" data-doc="detects" role="tabpanel" aria-labelledby="doc-tab-detects" hidden>
       <div class="section-head">
         <p class="kicker">[ 02 ] DETECTIONS</p>
         <h2>What it maps.</h2>
@@ -387,7 +400,7 @@
       </p>
     </section>
 
-    <section class="section" id="console">
+    <section class="section doc-panel" id="console" data-doc="console" role="tabpanel" aria-labelledby="doc-tab-console" hidden>
       <div class="section-head center">
         <p class="kicker">[ 03 ] CONSOLE</p>
         <h2>The reference client.</h2>
@@ -420,7 +433,7 @@
       </div>
     </section>
 
-    <section class="section" id="interfaces">
+    <section class="section doc-panel" id="interfaces" data-doc="interfaces" role="tabpanel" aria-labelledby="doc-tab-interfaces" hidden>
       <div class="section-head">
         <p class="kicker">[ 04 ] INTERFACES</p>
         <h2>Everything goes through one contract.</h2>
@@ -466,7 +479,7 @@
       </div>
     </section>
 
-    <section class="section" id="run">
+    <section class="section doc-panel" id="run" data-doc="run" role="tabpanel" aria-labelledby="doc-tab-run" hidden>
       <div class="section-head">
         <p class="kicker">[ 05 ] RUN IT</p>
         <h2>Two containers and a database.</h2>
@@ -477,9 +490,9 @@
 cd Vortemis.io
 docker compose up --build
 
-# console  http://localhost:8501
-# api      http://localhost:8000
-# docs     http://localhost:8000/docs</pre>
+# console  http://vortemis.local:8501
+# api      http://vortemis.local:8000
+# docs     http://vortemis.local:8000/docs</pre>
 
         <ul class="requirements">
           <li><span>Runtime</span><b>Python 3.14 or Docker</b></li>
@@ -491,7 +504,7 @@ docker compose up --build
       </div>
     </section>
 
-    <section class="section" id="faq">
+    <section class="section doc-panel" id="faq" data-doc="faq" role="tabpanel" aria-labelledby="doc-tab-faq" hidden>
       <div class="section-head">
         <p class="kicker">[ 06 ] FAQ</p>
         <h2>Questions we get.</h2>
@@ -523,7 +536,7 @@ docker compose up --build
 
     <pre class="ascii stars wide" data-ascii="stars" aria-hidden="true"></pre>
 
-    <section class="access" id="access">
+    <section class="access doc-panel" id="access" data-doc="access" role="tabpanel" aria-labelledby="doc-tab-access" hidden>
       <div>
         <p class="kicker">[ 07 ] ACCESS</p>
         <h2>Operator access.</h2>
@@ -536,6 +549,9 @@ docker compose up --build
         </svg>
         SIGN IN
       </button>
+    </section>
+
+      </div>
     </section>
 
     <footer class="site-footer">
@@ -718,7 +734,7 @@ docker compose up --build
           </label>
           <label>
             <span>Source IP</span>
-            <input name="src_ip" placeholder="192.168.1.10">
+            <input name="src_ip" placeholder="203.0.113.10">
           </label>
           <label class="range">
             <span>Min probability</span>
